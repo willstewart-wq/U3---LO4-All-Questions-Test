@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OCR Sport & Physical Activity - U3 LO4 Online Test</title>
+  <title>OCR Sport & Physical Activity - U3 LO4 Complete Exam</title>
   <style>
     :root {
       --primary: #0056b3;
@@ -25,7 +25,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 950px;
       margin: 0 auto;
       background: #fff;
       padding: 30px;
@@ -33,9 +33,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    h1, h2, h3 {
-      color: var(--primary);
-    }
+    h1, h2, h3 { color: var(--primary); }
 
     .header-box {
       border: 2px solid var(--primary);
@@ -43,6 +41,10 @@
       border-radius: 6px;
       margin-bottom: 25px;
       background-color: #f8fbff;
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
 
     .student-info {
@@ -78,7 +80,7 @@
     }
 
     button {
-      padding: 10px 18px;
+      padding: 10px 16px;
       font-size: 14px;
       font-weight: bold;
       border: none;
@@ -110,9 +112,9 @@
     }
 
     .question-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .marks-badge {
@@ -121,6 +123,7 @@
       padding: 2px 8px;
       border-radius: 12px;
       font-size: 12px;
+      color: #495057;
     }
 
     textarea, input[type="text"] {
@@ -145,9 +148,7 @@
       text-align: left;
     }
 
-    th {
-      background-color: #f1f1f1;
-    }
+    th { background-color: #f1f1f1; }
 
     .feedback-box {
       margin-top: 15px;
@@ -187,23 +188,19 @@
       text-align: center;
       font-size: 18px;
     }
-
-    @media print {
-      .action-bar, .save-status { display: none; }
-    }
   </style>
 </head>
 <body>
 
 <div class="container">
   <h1>OCR Sport & Physical Activity (Level 3)</h1>
-  <h2>Unit 3 - LO4 Practice Assessment</h2>
+  <h2>Unit 3 - ALL LO4 Assessment Questions (Total: 131 Marks)</h2>
 
-  <!-- Student Details Header -->
+  <!-- Candidate Details Header -->
   <div class="header-box">
     <div class="student-info">
       <div class="form-group">
-        <label for="studentName">Candidate Name:</label>
+        <label for="studentName">Candidate Forename & Surname:</label>
         <input type="text" id="studentName" placeholder="Enter Full Name">
       </div>
       <div class="form-group">
@@ -223,20 +220,16 @@
       <button class="btn-primary" onclick="downloadGoogleDoc()">Download for Google Docs</button>
       <button class="btn-danger" onclick="resetTest()">Reset Form</button>
     </div>
-    <div class="save-status" id="saveStatus">Auto-save active. Your progress is saved locally.</div>
+    <div class="save-status" id="saveStatus">Auto-save enabled. Progress stored locally in browser.</div>
   </div>
 
   <div id="scoreSummary" class="score-summary"></div>
 
-  <!-- TEST QUESTIONS CONTAINER -->
   <form id="quizForm">
 
-    <!-- Q1(a) -->
+    <!-- QUESTION 1 -->
     <div class="question-card" id="q_1a">
-      <div class="question-title">
-        1(a) Identify four disadvantages of hosting a major sporting event.
-        <span class="marks-badge">[4 Marks]</span>
-      </div>
+      <div class="question-title">1(a) Identify four disadvantages of hosting a major sporting event. <span class="marks-badge">[4 Marks]</span></div>
       <input type="text" name="q1a_1" placeholder="Disadvantage 1">
       <input type="text" name="q1a_2" placeholder="Disadvantage 2">
       <input type="text" name="q1a_3" placeholder="Disadvantage 3">
@@ -244,135 +237,245 @@
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q1(b) -->
     <div class="question-card" id="q_1b">
-      <div class="question-title">
-        1(b) Describe three benefits an individual may gain by volunteering in sports development.
-        <span class="marks-badge">[3 Marks]</span>
-      </div>
+      <div class="question-title">1(b) Volunteers are an important part of sports development initiatives and events. Describe three benefits an individual may gain by volunteering. <span class="marks-badge">[3 Marks]</span></div>
       <input type="text" name="q1b_1" placeholder="Benefit 1">
       <input type="text" name="q1b_2" placeholder="Benefit 2">
       <input type="text" name="q1b_3" placeholder="Benefit 3">
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q1(c) -->
     <div class="question-card" id="q_1c">
-      <div class="question-title">
-        1(c) Explain how sports development events and initiatives can benefit a sport.
-        <span class="marks-badge">[4 Marks]</span>
-      </div>
-      <textarea name="q1c" rows="4" placeholder="Explain your answers here..."></textarea>
+      <div class="question-title">1(c) Explain how sports development events and initiatives can benefit a sport. <span class="marks-badge">[4 Marks]</span></div>
+      <textarea name="q1c" rows="4" placeholder="Type explanation..."></textarea>
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q1(d) -->
     <div class="question-card" id="q_1d">
-      <div class="question-title">
-        1(d) True or False: The overall accountability for sports development sits with UK Sport.
-        <span class="marks-badge">[1 Mark]</span>
-      </div>
+      <div class="question-title">1(d) True or False: The overall accountability for sports development sits with UK Sport. <span class="marks-badge">[1 Mark]</span></div>
       <label><input type="radio" name="q1d" value="True"> True</label><br>
       <label><input type="radio" name="q1d" value="False"> False</label>
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q1(e) -->
     <div class="question-card" id="q_1e">
-      <div class="question-title">
-        1(e) Explain why it might be important to use several different methods to promote sports development initiatives and events.
-        <span class="marks-badge">[3 Marks]</span>
-      </div>
-      <textarea name="q1e" rows="4" placeholder="Type your explanation here..."></textarea>
+      <div class="question-title">1(e) Explain why it might be important to use several different methods to promote sports development initiatives and events. <span class="marks-badge">[3 Marks]</span></div>
+      <textarea name="q1e" rows="4" placeholder="Type explanation..."></textarea>
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q2(a) -->
+    <!-- QUESTION 2 -->
     <div class="question-card" id="q_2a">
-      <div class="question-title">
-        2(a) For each example, classify whether it is an Initiative or an Event:
-        <span class="marks-badge">[4 Marks]</span>
-      </div>
+      <div class="question-title">2(a) For each example tick whether it is an initiative or an event: <span class="marks-badge">[4 Marks]</span></div>
       <table>
         <tr><th>Example</th><th>Initiative</th><th>Event</th></tr>
-        <tr>
-          <td>This Girl Can</td>
-          <td><input type="radio" name="q2a_1" value="Initiative"></td>
-          <td><input type="radio" name="q2a_1" value="Event"></td>
-        </tr>
-        <tr>
-          <td>Chance to Shine</td>
-          <td><input type="radio" name="q2a_2" value="Initiative"></td>
-          <td><input type="radio" name="q2a_2" value="Event"></td>
-        </tr>
-        <tr>
-          <td>High Five Netball Taster Session</td>
-          <td><input type="radio" name="q2a_3" value="Initiative"></td>
-          <td><input type="radio" name="q2a_3" value="Event"></td>
-        </tr>
-        <tr>
-          <td>Swim 21</td>
-          <td><input type="radio" name="q2a_4" value="Initiative"></td>
-          <td><input type="radio" name="q2a_4" value="Event"></td>
-        </tr>
+        <tr><td>This Girl Can</td><td><input type="radio" name="q2a_1" value="Initiative"></td><td><input type="radio" name="q2a_1" value="Event"></td></tr>
+        <tr><td>Chance to Shine</td><td><input type="radio" name="q2a_2" value="Initiative"></td><td><input type="radio" name="q2a_2" value="Event"></td></tr>
+        <tr><td>High Five Netball Taster Session</td><td><input type="radio" name="q2a_3" value="Initiative"></td><td><input type="radio" name="q2a_3" value="Event"></td></tr>
+        <tr><td>Swim 21</td><td><input type="radio" name="q2a_4" value="Initiative"></td><td><input type="radio" name="q2a_4" value="Event"></td></tr>
       </table>
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q3(a) -->
+    <div class="question-card" id="q_2b1">
+      <div class="question-title">2(b)(i) Describe three considerations about the scale of a sports development event which would need to be planned for. <span class="marks-badge">[3 Marks]</span></div>
+      <input type="text" name="q2b1_1" placeholder="Consideration 1">
+      <input type="text" name="q2b1_2" placeholder="Consideration 2">
+      <input type="text" name="q2b1_3" placeholder="Consideration 3">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_2b2">
+      <div class="question-title">2(b)(ii) Suggest three types of organisations that would be involved when planning a regional sports development event or initiative. <span class="marks-badge">[3 Marks]</span></div>
+      <input type="text" name="q2b2_1" placeholder="Organisation 1">
+      <input type="text" name="q2b2_2" placeholder="Organisation 2">
+      <input type="text" name="q2b2_3" placeholder="Organisation 3">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_2c">
+      <div class="question-title">2(c)* Nicola Adams won gold medals in boxing for Team GB at the 2012 and 2016 Olympic Games. Discuss how such high profile success in sport can benefit: the individual, the sport, the National Governing Body (England Boxing), and society. <span class="marks-badge">[8 Marks]</span></div>
+      <textarea name="q2c" rows="7" placeholder="Provide a detailed, balanced response covering all 4 areas..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- QUESTION 3 -->
     <div class="question-card" id="q_3a">
-      <div class="question-title">
-        3(a) The Six Nations rugby championship is an international sporting event.
-        <span class="marks-badge">[1 Mark]</span>
-      </div>
+      <div class="question-title">3(a) True or False: The Six Nations rugby championship is an international sporting event. <span class="marks-badge">[1 Mark]</span></div>
       <label><input type="radio" name="q3a" value="True"> True</label><br>
       <label><input type="radio" name="q3a" value="False"> False</label>
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q3(c) -->
+    <div class="question-card" id="q_3b">
+      <div class="question-title">3(b) Identify two other non-governmental sources of funding sport in the UK with examples. <span class="marks-badge">[4 Marks]</span></div>
+      <input type="text" name="q3b_s1" placeholder="Source 1">
+      <input type="text" name="q3b_e1" placeholder="Example 1">
+      <input type="text" name="q3b_s2" placeholder="Source 2">
+      <input type="text" name="q3b_e2" placeholder="Example 2">
+      <div class="feedback-box"></div>
+    </div>
+
     <div class="question-card" id="q_3c">
-      <div class="question-title">
-        3(c) A television advertising campaign is one way to promote sports development. Describe three other ways a sports development initiative can be promoted.
-        <span class="marks-badge">[3 Marks]</span>
-      </div>
-      <input type="text" name="q3c_1" placeholder="Method 1">
-      <input type="text" name="q3c_2" placeholder="Method 2">
-      <input type="text" name="q3c_3" placeholder="Method 3">
+      <div class="question-title">3(c) Describe three other ways that a sports development initiative can be promoted (excluding TV adverts). <span class="marks-badge">[3 Marks]</span></div>
+      <input type="text" name="q3c_1" placeholder="Way 1">
+      <input type="text" name="q3c_2" placeholder="Way 2">
+      <input type="text" name="q3c_3" placeholder="Way 3">
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q4(d) -->
+    <div class="question-card" id="q_3d">
+      <div class="question-title">3(d) Describe the benefits gained by being successful at sport for an elite performer like Usain Bolt. <span class="marks-badge">[6 Marks]</span></div>
+      <textarea name="q3d" rows="5" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question-card" id="q_4a">
+      <div class="question-title">4(a) Name two specific organisations involved in delivering sports development initiatives and events. <span class="marks-badge">[2 Marks]</span></div>
+      <input type="text" name="q4a_1" placeholder="Named Organisation 1 (e.g., The FA)">
+      <input type="text" name="q4a_2" placeholder="Named Organisation 2 (e.g., Sport England)">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_4b">
+      <div class="question-title">4(b) Describe how the success of Mo Farah at the Olympics and World Championships could help the development of the sport of athletics. <span class="marks-badge">[4 Marks]</span></div>
+      <textarea name="q4b" rows="4" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_4c">
+      <div class="question-title">4(c)* Describe the characteristics of a big sports event such as the Olympics, and explain the advantages and disadvantages of organising and hosting such an event. <span class="marks-badge">[8 Marks]</span></div>
+      <textarea name="q4c" rows="7" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
     <div class="question-card" id="q_4d">
-      <div class="question-title">
-        4(d) Name two national initiatives aimed at delivering sports development.
-        <span class="marks-badge">[2 Marks]</span>
-      </div>
-      <input type="text" name="q4d_1" placeholder="Initiative 1">
-      <input type="text" name="q4d_2" placeholder="Initiative 2">
+      <div class="question-title">4(d) Name two national initiatives aimed at delivering sports development. <span class="marks-badge">[2 Marks]</span></div>
+      <input type="text" name="q4d_1" placeholder="National Initiative 1">
+      <input type="text" name="q4d_2" placeholder="National Initiative 2">
       <div class="feedback-box"></div>
     </div>
 
-    <!-- Q7(b) -->
+    <!-- QUESTION 5 -->
+    <div class="question-card" id="q_5">
+      <div class="question-title">5 Explain the possible benefits to the Lawn Tennis Association (LTA) if the Great British Tennis Weekend initiative is successful. <span class="marks-badge">[6 Marks]</span></div>
+      <textarea name="q5" rows="5" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- QUESTION 6 -->
+    <div class="question-card" id="q_6a">
+      <div class="question-title">6(a) Describe what would need to be considered under "purpose and aim" when planning a sports development event. <span class="marks-badge">[4 Marks]</span></div>
+      <textarea name="q6a" rows="4" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_6b">
+      <div class="question-title">6(b) Describe four possible benefits of sports development for a performer. <span class="marks-badge">[4 Marks]</span></div>
+      <input type="text" name="q6b_1" placeholder="Benefit 1">
+      <input type="text" name="q6b_2" placeholder="Benefit 2">
+      <input type="text" name="q6b_3" placeholder="Benefit 3">
+      <input type="text" name="q6b_4" placeholder="Benefit 4">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_6c">
+      <div class="question-title">6(c)* Discuss the advantages and disadvantages of using volunteers in sports development. <span class="marks-badge">[8 Marks]</span></div>
+      <textarea name="q6c" rows="7" placeholder="Provide a balanced answer with developed points for both advantages and disadvantages..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- QUESTION 7 -->
+    <div class="question-card" id="q_7a">
+      <div class="question-title">7(a) Describe how a local council may support sports development events and initiatives. <span class="marks-badge">[4 Marks]</span></div>
+      <textarea name="q7a" rows="4" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
     <div class="question-card" id="q_7b">
-      <div class="question-title">
-        7(b) Identify two types of cost that need to be considered when putting on a sports development event or initiative.
-        <span class="marks-badge">[2 Marks]</span>
-      </div>
-      <input type="text" name="q7b_1" placeholder="Cost Type 1">
-      <input type="text" name="q7b_2" placeholder="Cost Type 2">
+      <div class="question-title">7(b) Identify two types of cost that need to be considered when putting on a sports development event or initiative. <span class="marks-badge">[2 Marks]</span></div>
+      <input type="text" name="q7b_1" placeholder="Type of Cost 1">
+      <input type="text" name="q7b_2" placeholder="Type of Cost 2">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_7c">
+      <div class="question-title">7(c) Name two International sports events from different sporting activities. <span class="marks-badge">[2 Marks]</span></div>
+      <input type="text" name="q7c_1" placeholder="Event 1 (Sport A)">
+      <input type="text" name="q7c_2" placeholder="Event 2 (Sport B)">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_7d">
+      <div class="question-title">7(d) Discuss ways that an initiative like 'Doorstep Sport Clubs' could benefit the population of a local area. <span class="marks-badge">[6 Marks]</span></div>
+      <textarea name="q7d" rows="5" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- QUESTION 8 -->
+    <div class="question-card" id="q_8a">
+      <div class="question-title">8(a) Identify two regional sports events from different sports. <span class="marks-badge">[2 Marks]</span></div>
+      <input type="text" name="q8a_1" placeholder="Regional Event 1">
+      <input type="text" name="q8a_2" placeholder="Regional Event 2">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_8b">
+      <div class="question-title">8(b) Describe four potential benefits of sports development for the organisation who is providing it. <span class="marks-badge">[4 Marks]</span></div>
+      <input type="text" name="q8b_1" placeholder="Benefit 1">
+      <input type="text" name="q8b_2" placeholder="Benefit 2">
+      <input type="text" name="q8b_3" placeholder="Benefit 3">
+      <input type="text" name="q8b_4" placeholder="Benefit 4">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_8c">
+      <div class="question-title">8(c) Explain the advantages of using volunteers to deliver large sports events. <span class="marks-badge">[4 Marks]</span></div>
+      <input type="text" name="q8c_1" placeholder="Advantage 1">
+      <input type="text" name="q8c_2" placeholder="Advantage 2">
+      <input type="text" name="q8c_3" placeholder="Advantage 3">
+      <input type="text" name="q8c_4" placeholder="Advantage 4">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_8d">
+      <div class="question-title">8(d) Human resource is one element that needs to be considered before staging an event. Describe three other considerations that need to be taken into account before running a sports development event or initiative. <span class="marks-badge">[6 Marks]</span></div>
+      <input type="text" name="q8d_1" placeholder="Consideration 1 & Description">
+      <input type="text" name="q8d_2" placeholder="Consideration 2 & Description">
+      <input type="text" name="q8d_3" placeholder="Consideration 3 & Description">
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- QUESTION 9 -->
+    <div class="question-card" id="q_9a">
+      <div class="question-title">9(a) Name four ways a national event (e.g. FA Cup) supports the aims of sports development. <span class="marks-badge">[4 Marks]</span></div>
+      <input type="text" name="q9a_1" placeholder="Way 1">
+      <input type="text" name="q9a_2" placeholder="Way 2">
+      <input type="text" name="q9a_3" placeholder="Way 3">
+      <input type="text" name="q9a_4" placeholder="Way 4">
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_9b">
+      <div class="question-title">9(b) Describe the possible disadvantages involved in organising and running a sports development event or initiative. <span class="marks-badge">[6 Marks]</span></div>
+      <textarea name="q9b" rows="5" placeholder="Type answer..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <div class="question-card" id="q_9c">
+      <div class="question-title">9(c) Describe how an effective sports development initiative can provide social benefits. <span class="marks-badge">[6 Marks]</span></div>
+      <textarea name="q9c" rows="5" placeholder="Type answer..."></textarea>
       <div class="feedback-box"></div>
     </div>
 
   </form>
 </div>
 
-<!-- Hidden File Input for uploading saved progress -->
 <input type="file" id="fileInput" style="display:none;" onchange="handleFileSelect(event)">
 
 <script>
-  // Save State automatically as candidate types
-  const STORAGE_KEY = 'ocr_pe_u3_lo4_data';
+  const STORAGE_KEY = 'ocr_pe_u3_lo4_full_data';
 
   document.addEventListener('DOMContentLoaded', () => {
     loadSavedState();
@@ -398,7 +501,6 @@
       candNo: document.getElementById('candNo').value,
       answers: {}
     };
-
     for (let [key, val] of formData.entries()) {
       obj.answers[key] = val;
     }
@@ -460,156 +562,166 @@
 
     return keyTerms.some(term => {
       const cleanTerm = term.toLowerCase();
-      // Direct substring match
       if (cleanUser.includes(cleanTerm)) return true;
-
-      // Check fuzzy match on word level
       return words.some(w => {
         if (Math.abs(w.length - cleanTerm.length) > 3) return false;
-        const dist = levenshteinDistance(w, cleanTerm);
-        return dist <= (cleanTerm.length > 5 ? 2 : 1);
+        return levenshteinDistance(w, cleanTerm) <= (cleanTerm.length > 5 ? 2 : 1);
       });
     });
   }
 
-  // --- ANSWER SCHEMES AND GRADING DEFINITIONS ---
+  // --- ALL QUESTION MARK SCHEMES (Total: 131 Marks) ---
   const MARK_SCHEMES = {
     q_1a: {
-      title: "1(a) Disadvantages of hosting major event",
-      maxMarks: 4,
-      type: "list",
-      inputs: ["q1a_1", "q1a_2", "q1a_3", "q1a_4"],
-      criteria: [
-        ["cost", "expense", "expensive", "money"],
-        ["house prices", "housing cost", "property price"],
-        ["tax", "taxes", "increased tax"],
-        ["move house", "relocation", "displaced", "demolish houses"],
-        ["elitist", "elite"],
-        ["restricted benefits", "host city only", "london only", "unequal benefit"],
-        ["scandal", "drugs", "doping", "corruption"],
-        ["wasted facilities", "white elephant", "unused venues", "empty stadium"],
-        ["terrorism", "terrorist", "security threat"],
-        ["poor reputation", "bad image", "embarrassment"],
-        ["environment", "environmental impact", "pollution", "congestion", "traffic"],
-        ["crime", "hooliganism", "anti-social", "antisocial"]
-      ],
-      officialModel: "Acceptable points: High costs; Increased house prices; Higher taxes; People forced to move home; Elitist nature; Benefits restricted to host city; Potential for scandal/doping; Wasted facilities ('white elephants'); Risk of terrorism; Environmental impact/traffic congestion; Anti-social behavior/crime."
+      maxMarks: 4, type: "list", inputs: ["q1a_1", "q1a_2", "q1a_3", "q1a_4"],
+      criteria: [["cost","expense"], ["house price"], ["tax"], ["move house","displaced"], ["elitist"], ["restricted","host city"], ["scandal","doping"], ["wasted","white elephant","unused"], ["terrorism","security"], ["reputation"], ["environment","traffic"], ["crime","hooliganism"]],
+      officialModel: "Disadvantages: Cost, Increased house prices, Increased taxes, Displaced residents, Elitist, Benefits restricted to host city, Scandal/doping risks, Wasted facilities, Terrorism risks, Poor reputation, Environmental impact/congestion, Crime/hooliganism."
     },
     q_1b: {
-      title: "1(b) Benefits of volunteering",
-      maxMarks: 3,
-      type: "list",
-      inputs: ["q1b_1", "q1b_2", "q1b_3"],
-      criteria: [
-        ["confidence", "self-esteem", "self esteem", "mental health", "wellbeing"],
-        ["meet people", "socialise", "friends", "networking"],
-        ["watch events", "spectate", "see matches"],
-        ["pride", "achievement", "sense of pride", "satisfaction"],
-        ["skills", "training", "learn new", "qualifications", "experience"],
-        ["opportunities", "new experience", "career prospects"]
-      ],
-      officialModel: "Acceptable points: Improves confidence/self-esteem/mental well-being; Meet new people/socialize; Ability to watch major sporting events; Sense of pride/achievement; Gain training/learn new skills; Gives new experiences and career opportunities."
+      maxMarks: 3, type: "list", inputs: ["q1b_1", "q1b_2", "q1b_3"],
+      criteria: [["confidence","esteem","mental"], ["meet people","friends","social"], ["watch"], ["pride","achievement"], ["skills","training","qualifications"], ["experience","opportunities"]],
+      officialModel: "Benefits: Confidence/mental well-being, Meet new people, Opportunity to watch major events, Pride/achievement, Learn new skills/training, New experiences."
     },
     q_1c: {
-      title: "1(c) Benefits of sports development to a sport",
-      maxMarks: 4,
-      type: "text",
-      inputs: ["q1c"],
-      criteria: [
-        ["profile", "reputation", "awareness", "popularity"],
-        ["sponsorship", "sponsors", "commercial interest"],
-        ["participation", "participate", "more players", "numbers"],
-        ["talent pool", "find talent", "grassroots"],
-        ["success", "win medals", "championships"],
-        ["funding", "money", "investment"],
-        ["audience", "spectators", "viewership"]
-      ],
-      officialModel: "Acceptable points: Raises the profile/reputation of the sport; Attracts new sponsorship opportunities; Increases participation numbers; Generates a larger talent pool; Makes the sport more successful (more medals/titles); Increases funding and media coverage/audience."
+      maxMarks: 4, type: "text", inputs: ["q1c"],
+      criteria: [["profile","reputation"], ["sponsorship"], ["participation"], ["talent pool"], ["success","win"], ["funding"], ["audience","spectator"]],
+      officialModel: "Benefits to sport: Raise profile/reputation, Attract sponsorship, Increase participation, Bigger talent pool, More success/medals, Increase funding, Bigger audience."
     },
-    q_1d: {
-      title: "1(d) Accountability of sports development",
-      maxMarks: 1,
-      type: "radio",
-      inputs: ["q1d"],
-      correctVal: "False",
-      officialModel: "Correct Answer: False (Overall accountability sits with DCMS / Sport England / NGBs depending on region, not UK Sport alone)."
-    },
+    q_1d: { maxMarks: 1, type: "radio", inputs: ["q1d"], correctVal: "False", officialModel: "Correct Answer: False (Overall accountability sits with DCMS/Sport England/NGBs)." },
     q_1e: {
-      title: "1(e) Why use several methods of promotion",
-      maxMarks: 3,
-      type: "text",
-      inputs: ["q1e"],
-      criteria: [
-        ["wide range", "widest variety", "reach more people", "widespread"],
-        ["target audience", "different audiences", "young people", "older people"],
-        ["social media", "share", "forward", "viral"],
-        ["cost", "cheap", "expensive", "budget"],
-        ["scale", "scale of event", "local vs national"]
-      ],
-      officialModel: "Acceptable points: Reaches the widest variety/range of people; Different methods reach target audiences (e.g., social media for youth, local newspapers for older age groups); Social media allows sharing; Promotional costs vary; Choice depends on scale of event."
+      maxMarks: 3, type: "text", inputs: ["q1e"],
+      criteria: [["widescale","reach widest","variety"], ["target audience","different audience"], ["social media","share"], ["cost","cheap"], ["scale"]],
+      officialModel: "Reasons: Access widest variety of people, Reach different target audiences (youth vs older), Social media sharing, Cost differences, Depends on scale of event."
     },
     q_2a: {
-      title: "2(a) Initiative vs Event classification",
-      maxMarks: 4,
-      type: "multi-radio",
-      answers: {
-        "q2a_1": "Initiative",
-        "q2a_2": "Initiative",
-        "q2a_3": "Event",
-        "q2a_4": "Initiative"
-      },
-      officialModel: "Correct Answers: This Girl Can = Initiative; Chance to Shine = Initiative; High Five Netball Taster Session = Event; Swim 21 = Initiative."
+      maxMarks: 4, type: "multi-radio", answers: { "q2a_1": "Initiative", "q2a_2": "Initiative", "q2a_3": "Event", "q2a_4": "Initiative" },
+      officialModel: "This Girl Can = Initiative; Chance to Shine = Initiative; High Five Netball Taster Session = Event; Swim 21 = Initiative."
     },
-    q_3a: {
-      title: "3(a) Six Nations Rugby Event Classification",
-      maxMarks: 1,
-      type: "radio",
-      inputs: ["q3a"],
-      correctVal: "True",
-      officialModel: "Correct Answer: True (Six Nations is an international event)."
+    q_2b1: {
+      maxMarks: 3, type: "list", inputs: ["q2b1_1", "q2b1_2", "q2b1_3"],
+      criteria: [["duration","time"], ["target group"], ["staff","volunteers"], ["participants","teams"], ["facilities","venues","equipment"], ["finance","budget"], ["infrastructure","transport","parking"], ["promotion"]],
+      officialModel: "Considerations: Duration/planning time, Target group, Staffing/volunteers needed, Number of participants/teams, Facilities/equipment, Budget/finance, Infrastructure/transport, Promotion."
+    },
+    q_2b2: {
+      maxMarks: 3, type: "list", inputs: ["q2b2_1", "q2b2_2", "q2b2_3"],
+      criteria: [["council","local authority"], ["ngb","governing body"], ["voluntary club","grassroots"], ["sport england"], ["county sports partnership"], ["school","college"], ["sports center"], ["business"]],
+      officialModel: "Organisations: Local Councils, NGBs (e.g. FA), Voluntary sports clubs, Sport England, County Sports Partnerships, County Schools/Colleges, Local sports centers, Local businesses."
+    },
+    q_2c: {
+      maxMarks: 8, type: "text", inputs: ["q2c"],
+      criteria: [["individual","prize","money","sponsorship","coaching","fame","role model"], ["sport","profile","participation","talent pool","success"], ["ngb","england boxing","reputation","attendances","funding"], ["society","discrimination","stereotypes","crime","health","community"]],
+      officialModel: "Level 3 (7-8 Marks): Covers Individual (sponsorship, coaching, role model), Sport (profile, participation, talent pool), NGB (reputation, funding, attendances), and Society (tackling discrimination, crime reduction, health improvements, female sport promotion)."
+    },
+    q_3a: { maxMarks: 1, type: "radio", inputs: ["q3a"], correctVal: "True", officialModel: "Correct Answer: True (Six Nations is an international event)." },
+    q_3b: {
+      maxMarks: 4, type: "list", inputs: ["q3b_s1", "q3b_e1", "q3b_s2", "q3b_e2"],
+      criteria: [["national lottery","lottery"], ["facilities","equipment"], ["sports club","membership"], ["fees","officials"], ["sponsorship"], ["kit","name"], ["charity","princes trust"]],
+      officialModel: "Sources & Examples: 1. National Lottery (e.g. funding for facilities); 2. Sports clubs/membership fees (e.g. buying equipment); 3. Sponsorship (e.g. kit sponsorship); 4. Charity grants (e.g. Prince's Trust)."
     },
     q_3c: {
-      title: "3(c) Ways to promote sports development initiative",
-      maxMarks: 3,
-      type: "list",
-      inputs: ["q3c_1", "q3c_2", "q3c_3"],
-      criteria: [
-        ["social media", "facebook", "twitter", "instagram", "tiktok"],
-        ["newspaper", "local paper", "press release"],
-        ["radio", "broadcast"],
-        ["leaflet", "flyer", "brochure"],
-        ["poster", "billboard"],
-        ["word of mouth", "taster session", "school visit"],
-        ["guest speaker", "role model", "ambassador"]
-      ],
-      officialModel: "Acceptable methods (excl TV): Social media; Local newspapers; Radio; Leaflets/flyer drops; Posters; Word of mouth / taster sessions; Guest speakers / sporting role models."
+      maxMarks: 3, type: "list", inputs: ["q3c_1", "q3c_2", "q3c_3"],
+      criteria: [["social media","facebook","twitter","instagram"], ["newspaper","press"], ["radio"], ["leaflet","flyer"], ["poster"], ["word of mouth","taster"], ["speaker","role model"]],
+      officialModel: "Methods: Social media, Local newspaper, Radio, Leaflet drop, Posters, Word of mouth/taster sessions, Guest speakers."
+    },
+    q_3d: {
+      maxMarks: 6, type: "text", inputs: ["q3d"],
+      criteria: [["financial","reward","money"], ["sponsorship","puma"], ["role model"], ["coaches"], ["support","medical"], ["facilities"], ["travel"], ["celebrity","fame"], ["career","media"], ["legacy","titles","records"]],
+      officialModel: "Benefits for elite performer: Financial rewards, Sponsorship deals, Role model status, Top quality coaches, High quality support networks (physio/medicine), Travel, Fame/celebrity, Post-career media opportunities, Legacy."
+    },
+    q_4a: {
+      maxMarks: 2, type: "list", inputs: ["q4a_1", "q4a_2"],
+      criteria: [["iaaf","world athletics"], ["fa","football association","lta","rfu","england athletics","ngb"], ["sport england"], ["nottinghamshire","council","local authority"], ["newark","hockey","club"], ["yorkshire sport"], ["youth sports trust"], ["wheelpower"]],
+      officialModel: "Named Organisations: Must give specific names e.g., The FA, Sport England, Youth Sport Trust, Nottinghamshire County Council, Wheelpower."
+    },
+    q_4b: {
+      maxMarks: 4, type: "text", inputs: ["q4b"],
+      criteria: [["profile"], ["participation","membership"], ["role model","inspire"], ["talent pool"], ["attendance"], ["links","england athletics"], ["promotion"], ["sponsorship","funding"]],
+      officialModel: "How success helps athletics: Increases profile of sport, Increases participation/memberships, Role model inspires others, Bigger talent pool, Higher event attendance, Promotes future events, Attracts funding."
+    },
+    q_4c: {
+      maxMarks: 8, type: "text", inputs: ["q4c"],
+      criteria: [["characteristic","elite","international","one-off","scale"], ["advantage","health","participation","feel good","regeneration","legacy","tourism","economy","jobs"], ["disadvantage","cost","unused","facilities","terror","environment"]],
+      officialModel: "Level 3 (7-8 Marks): Details Characteristics (elite focus, international scale, multi-organisation, broadcast widely), Advantages (health, national feel-good factor, area regeneration, legacy, tourism, income), and Disadvantages (high cost, facility underuse after, security risks)."
     },
     q_4d: {
-      title: "4(d) Two national initiatives",
-      maxMarks: 2,
-      type: "list",
-      inputs: ["q4d_1", "q4d_2"],
-      criteria: [
-        ["this girl can"],
-        ["great british tennis weekend", "gb tennis"],
-        ["chance to shine"],
-        ["1 million kids", "one million kids"],
-        ["kickz", "kickz programme"],
-        ["swim 21", "swim21"]
-      ],
-      officialModel: "Acceptable answers include: This Girl Can, Great British Tennis Weekend, Chance to Shine, 1 Million Kids, Kickz Programme, Swim 21."
+      maxMarks: 2, type: "list", inputs: ["q4d_1", "q4d_2"],
+      criteria: [["this girl can"], ["great british tennis weekend"], ["chance to shine"], ["1 million kids"], ["kickz"], ["swim 21"]],
+      officialModel: "National Initiatives: This Girl Can, Great British Tennis Weekend, Chance to Shine, 1 Million Kids, Kickz, Swim 21."
+    },
+    q_5: {
+      maxMarks: 6, type: "text", inputs: ["q5"],
+      criteria: [["funding"], ["exposure","investment"], ["sponsorship"], ["participation","clubs"], ["talent identification"], ["promotion"], ["links"]],
+      officialModel: "Benefits to LTA: Supports funding applications, Drives participation & investment, Attracts sponsorship to other LTA events, Feeds participants into NGB clubs, Talent identification, Promotes future initiatives."
+    },
+    q_6a: {
+      maxMarks: 4, type: "text", inputs: ["q6a"],
+      criteria: [["target audience"], ["social needs","inner city"], ["government initiatives","health"], ["public awareness"], ["popularity","fashion"], ["needs of participants"], ["broad appeal"]],
+      officialModel: "Purpose & Aim considerations: Target audience, Meeting social needs, Aligning with Government initiatives, Raising public awareness, Sport popularity, Broad appeal for varying ability levels."
+    },
+    q_6b: {
+      maxMarks: 4, type: "list", inputs: ["q6b_1", "q6b_2", "q6b_3", "q6b_4"],
+      criteria: [["skills","performance"], ["coaching"], ["support","physio"], ["framework","infrastructure"], ["profile"], ["competition"], ["sponsorship"], ["financial","professional"]],
+      officialModel: "Performer Benefits: Develop skills/performance, Access better coaching, Access support (physio), Structured competition framework, Raise profile, Attract sponsorship, Financial gain/turn professional."
+    },
+    q_6c: {
+      maxMarks: 8, type: "text", inputs: ["q6c"],
+      criteria: [["advantage","low cost","free","willing","enthusiastic","flexible","community"], ["disadvantage","supervision","training","experience","contract","drop out","priority"]],
+      officialModel: "Level 3 (7-8 Marks): Detailed discussion of Advantages (low cost, highly motivated, local, flexible hours) and Disadvantages (require training/supervision, lack experience, no binding contract, risk of dropping out)."
+    },
+    q_7a: {
+      maxMarks: 4, type: "text", inputs: ["q7a"],
+      criteria: [["facilities","build"], ["access"], ["park space"], ["health"], ["campaigns","sportivate"], ["subsidised","free swimming"], ["staffing","coaches"]],
+      officialModel: "Local Council support: Build/maintain facilities, Provide access to leisure centers, Maintain park space, Run campaigns, Offer subsidised/free sessions, Provide coaching & administrative staff."
     },
     q_7b: {
-      title: "7(b) Types of cost for sports event/initiative",
-      maxMarks: 2,
-      type: "list",
-      inputs: ["q7b_1", "q7b_2"],
-      criteria: [
-        ["upfront", "upfront cost", "start cost", "initial cost", "facilities", "equipment", "insurance"],
-        ["ongoing", "on-going", "maintenance", "staffing", "coaching", "transport"],
-        ["financial gain", "profit", "revenue"]
-      ],
-      officialModel: "Acceptable types of cost: Upfront costs (equipment, venue hire, promotion, insurance); Ongoing costs (staffing, transport, facility maintenance)."
+      maxMarks: 2, type: "list", inputs: ["q7b_1", "q7b_2"],
+      criteria: [["upfront","start","initial","equipment","venue","insurance"], ["ongoing","staffing","coaching","transport"], ["financial gain"]],
+      officialModel: "Types of Cost: Upfront costs (equipment, venue hire, insurance, marketing); Ongoing costs (staff wages, transport, maintenance)."
+    },
+    q_7c: {
+      maxMarks: 2, type: "list", inputs: ["q7c_1", "q7c_2"],
+      criteria: [["champions league","world cup","euro"], ["wimbledon","us open","french open"], ["ashes","test match"], ["tour de france"], ["six nations","6 nations"], ["olympics","paralympics"]],
+      officialModel: "International Events (different sports): e.g., FIFA World Cup (Football) and Wimbledon (Tennis); or Tour de France (Cycling) and Six Nations (Rugby)."
+    },
+    q_7d: {
+      maxMarks: 6, type: "text", inputs: ["q7d"],
+      criteria: [["opportunity","all"], ["crime"], ["participation"], ["tolerance","understanding"], ["community","friends"], ["employment","jobs"], ["facilities","area"], ["health"], ["self-esteem"]],
+      officialModel: "Doorstep Sport Clubs benefits: Sports opportunities for all, Crime reduction, Community cohesion & social skills, Employment/coaching jobs, Area regeneration/better facilities, Health & self-esteem improvements."
+    },
+    q_8a: {
+      maxMarks: 2, type: "list", inputs: ["q8a_1", "q8a_2"],
+      criteria: [["north west","league"], ["yorkshire"], ["midlands"], ["regional","county"]],
+      officialModel: "Regional Events (different sports): e.g., North West Counties Football League, South West Schools Athletics Championships."
+    },
+    q_8b: {
+      maxMarks: 4, type: "list", inputs: ["q8b_1", "q8b_2", "q8b_3", "q8b_4"],
+      criteria: [["reputation"], ["participation"], ["success","medals"], ["talent"], ["interest","media","awareness"], ["funding"]],
+      officialModel: "Benefits for Provider: Enhanced organisation reputation, Increased participation, Higher success rates at elite level, Talent pool growth, Greater media awareness, Continued/increased funding."
+    },
+    q_8c: {
+      maxMarks: 4, type: "list", inputs: ["q8c_1", "q8c_2", "q8c_3", "q8c_4"],
+      criteria: [["low cost","free"], ["enthusiastic","passionate"], ["committed"], ["local"], ["flexible"], ["short notice"], ["pride"]],
+      officialModel: "Advantages of Volunteers: Low cost/free labor, Enthusiastic and passionate, High commitment, Local knowledge, Flexible working hours, Pride in local community."
+    },
+    q_8d: {
+      maxMarks: 6, type: "list", inputs: ["q8d_1", "q8d_2", "q8d_3"],
+      criteria: [["aim","purpose"], ["cost","funding","finance"], ["time","duration"], ["expertise","ability"], ["accountability"], ["success measures"], ["target group"], ["facilities","equipment"], ["scale"], ["health and safety","risk"], ["promotion"]],
+      officialModel: "3 Considerations (with descriptions): 1. Aim/Purpose; 2. Cost/Funding; 3. Time/Duration; 4. Facilities & Equipment; 5. Health & Safety; 6. Promotion; 7. Success measures."
+    },
+    q_9a: {
+      maxMarks: 4, type: "list", inputs: ["q9a_1", "q9a_2", "q9a_3", "q9a_4"],
+      criteria: [["media","profile","awareness"], ["participation"], ["education","rules","values"], ["role models"], ["talent pool"]],
+      officialModel: "FA Cup / National Event support: Media coverage raises sport profile, Encourages participation, Educates on rules/fair play values, Generates role models, Expands NGB talent pool."
+    },
+    q_9b: {
+      maxMarks: 6, type: "text", inputs: ["q9b"],
+      criteria: [["cost","financial"], ["time"], ["expertise","skills"], ["human resources","staff","volunteers"], ["accountability"], ["success measures","low turnout"]],
+      officialModel: "Disadvantages of running event: High upfront/ongoing costs, Significant time required to plan, Need for qualified/expert staff, Heavy human resource reliance, Risk of accountability/failure, Measuring success if turnout is low."
+    },
+    q_9c: {
+      maxMarks: 6, type: "text", inputs: ["q9c"],
+      criteria: [["values"], ["role models"], ["tolerance","understanding"], ["inclusion","barriers"], ["fair play"], ["constructive","crime"], ["economy","tourism"], ["community","teamwork"], ["health"], ["profile"]],
+      officialModel: "Social Benefits: Promotes positive values & fair play, Provides role models, Develops tolerance, Promotes social inclusion, Reduces crime through constructive activity, Builds community cohesion & health."
     }
   };
 
@@ -626,13 +738,11 @@
       let attempted = checkAttempted(scheme);
 
       if (!attempted) {
-        // HIDE MODEL ANSWER IF NOT ATTEMPTED
         feedbackBox.style.display = 'block';
         feedbackBox.className = 'feedback-box feedback-unattempted';
         feedbackBox.innerHTML = `<strong>Status: Not Attempted</strong><br>
-          <em>Model answers and mark scheme feedback are hidden because this question was not answered. Please complete the question to view feedback.</em>`;
+          <em>Model answers are hidden because this question was not attempted. Complete the question to view feedback.</em>`;
       } else {
-        // GRADE ATTEMPTED QUESTION
         let marksGained = gradeQuestion(scheme);
         totalAwarded += marksGained;
 
@@ -661,12 +771,9 @@
         return input && input.value.trim().length > 1;
       });
     } else if (scheme.type === 'radio') {
-      const checked = document.querySelector(`[name="${scheme.inputs[0]}"]:checked`);
-      return checked !== null;
+      return document.querySelector(`[name="${scheme.inputs[0]}"]:checked`) !== null;
     } else if (scheme.type === 'multi-radio') {
-      return Object.keys(scheme.answers).some(name => {
-        return document.querySelector(`[name="${name}"]:checked`) !== null;
-      });
+      return Object.keys(scheme.answers).some(name => document.querySelector(`[name="${name}"]:checked`) !== null);
     }
     return false;
   }
@@ -685,13 +792,13 @@
       }
     } 
     else if (scheme.type === 'list') {
-      let matchedCriteriaIndexes = new Set();
+      let matchedIndexes = new Set();
       scheme.inputs.forEach(inputId => {
         const val = document.querySelector(`[name="${inputId}"]`).value;
         if (val.trim().length > 1) {
           scheme.criteria.forEach((critGroup, idx) => {
-            if (!matchedCriteriaIndexes.has(idx) && matchesKeywords(val, critGroup)) {
-              matchedCriteriaIndexes.add(idx);
+            if (!matchedIndexes.has(idx) && matchesKeywords(val, critGroup)) {
+              matchedIndexes.add(idx);
               score++;
             }
           });
@@ -703,9 +810,7 @@
       const val = document.querySelector(`[name="${scheme.inputs[0]}"]`).value;
       let matches = 0;
       scheme.criteria.forEach(critGroup => {
-        if (matchesKeywords(val, critGroup)) {
-          matches++;
-        }
+        if (matchesKeywords(val, critGroup)) matches++;
       });
       score = Math.min(matches, scheme.maxMarks);
     }
@@ -713,13 +818,13 @@
     return score;
   }
 
-  // --- SAVE / RESTORE / EXPORT FUNCTIONS ---
+  // --- SAVE / EXPORT FUNCTIONS ---
   function downloadJSON() {
     const data = getFormData();
     const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
     const dlAnchor = document.createElement('a');
     dlAnchor.setAttribute("href", str);
-    dlAnchor.setAttribute("download", `OCR_LO4_Test_${data.studentName || 'Student'}.json`);
+    dlAnchor.setAttribute("download", `OCR_LO4_FullTest_${data.studentName || 'Student'}.json`);
     document.body.appendChild(dlAnchor);
     dlAnchor.click();
     dlAnchor.remove();
@@ -738,7 +843,7 @@
         const data = JSON.parse(e.target.result);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         loadSavedState();
-        alert('Saved test progress successfully loaded!');
+        alert('Test progress successfully loaded!');
       } catch (err) {
         alert('Invalid JSON file format.');
       }
@@ -747,7 +852,7 @@
   }
 
   function resetTest() {
-    if (confirm("Are you sure you want to reset all answers?")) {
+    if (confirm("Reset all test answers?")) {
       localStorage.removeItem(STORAGE_KEY);
       document.getElementById('quizForm').reset();
       document.getElementById('studentName').value = '';
@@ -755,11 +860,10 @@
       document.getElementById('candNo').value = '';
       document.querySelectorAll('.feedback-box').forEach(el => el.style.display = 'none');
       document.getElementById('scoreSummary').style.display = 'none';
-      document.getElementById('saveStatus').innerText = 'Cleared state.';
+      document.getElementById('saveStatus').innerText = 'Cleared test state.';
     }
   }
 
-  // Download directly compatible format for Google Docs / Word
   function downloadGoogleDoc() {
     const data = getFormData();
     let docHTML = `
@@ -774,7 +878,7 @@
       </style>
       </head>
       <body>
-        <h1>OCR Level 3 Sport & Physical Activity - LO4 Assessment</h1>
+        <h1>OCR Level 3 Sport & Physical Activity - Unit 3 LO4 Full Test</h1>
         <p><strong>Candidate Name:</strong> ${data.studentName || 'N/A'}</p>
         <p><strong>Centre Number:</strong> ${data.centreNo || 'N/A'}</p>
         <p><strong>Candidate Number:</strong> ${data.candNo || 'N/A'}</p>
@@ -790,15 +894,12 @@
 
       if (scheme.type === 'list') {
         scheme.inputs.forEach((id, i) => {
-          const val = data.answers[id] || '<em>No answer provided</em>';
-          docHTML += `<p><strong>Answer ${i+1}:</strong> ${val}</p>`;
+          docHTML += `<p><strong>Response ${i+1}:</strong> ${data.answers[id] || '<em>None</em>'}</p>`;
         });
       } else if (scheme.type === 'text') {
-        const val = data.answers[scheme.inputs[0]] || '<em>No answer provided</em>';
-        docHTML += `<p><strong>Response:</strong> ${val}</p>`;
+        docHTML += `<p><strong>Response:</strong> ${data.answers[scheme.inputs[0]] || '<em>None</em>'}</p>`;
       } else if (scheme.type === 'radio') {
-        const val = data.answers[scheme.inputs[0]] || '<em>No answer provided</em>';
-        docHTML += `<p><strong>Selected Option:</strong> ${val}</p>`;
+        docHTML += `<p><strong>Selected Option:</strong> ${data.answers[scheme.inputs[0]] || '<em>None</em>'}</p>`;
       } else if (scheme.type === 'multi-radio') {
         for (let name of Object.keys(scheme.answers)) {
           docHTML += `<p><strong>Option (${name}):</strong> ${data.answers[name] || 'None'}</p>`;
@@ -807,17 +908,9 @@
 
       if (attempted) {
         let mark = gradeQuestion(scheme);
-        docHTML += `
-          <div class="model">
-            <strong>Mark Awarded:</strong> ${mark} / ${scheme.maxMarks}<br/>
-            <strong>Official Model Answer / Mark Scheme:</strong> ${scheme.officialModel}
-          </div>`;
+        docHTML += `<div class="model"><strong>Mark Awarded:</strong> ${mark} / ${scheme.maxMarks}<br/><strong>Mark Scheme Guidance:</strong> ${scheme.officialModel}</div>`;
       } else {
-        docHTML += `
-          <div class="unattempted">
-            <strong>Status: Unattempted</strong><br/>
-            <em>Model answers hidden because the candidate did not attempt this question.</em>
-          </div>`;
+        docHTML += `<div class="unattempted"><strong>Status: Unattempted</strong><br/><em>Model answers hidden because candidate did not attempt this question.</em></div>`;
       }
 
       docHTML += `</div>`;
@@ -825,14 +918,11 @@
 
     docHTML += `</body></html>`;
 
-    const blob = new Blob(['\ufeff' + docHTML], {
-      type: 'application/msword'
-    });
-
+    const blob = new Blob(['\ufeff' + docHTML], { type: 'application/msword' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `OCR_PE_LO4_Test_${data.studentName || 'Candidate'}.doc`;
+    a.download = `OCR_LO4_Test_${data.studentName || 'Candidate'}.doc`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
