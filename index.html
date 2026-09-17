@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCR Sport & Physical Activity - U3 LO4 Online Test</title>
+  <style>
+    :root {
+      --primary: #0056b3;
+      --secondary: #f4f6f9;
+      --success: #28a745;
+      --danger: #dc3545;
+      --warning: #ffc107;
+      --dark: #333;
+      --border: #ccc;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--secondary);
+      color: var(--dark);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+
+    .header-box {
+      border: 2px solid var(--primary);
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      background-color: #f8fbff;
+    }
+
+    .student-info {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed var(--border);
+    }
+
+    button {
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #004085; }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-success:hover { background: #218838; }
+    .btn-warning { background: var(--warning); color: #212529; }
+    .btn-danger { background: var(--danger); color: #fff; }
+
+    .save-status {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    .question-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #fff;
+    }
+
+    .question-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .marks-badge {
+      float: right;
+      background: #e9ecef;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+      font-family: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f1f1;
+    }
+
+    .feedback-box {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .feedback-attempted {
+      background-color: #e8f4ea;
+      border-left: 5px solid var(--success);
+    }
+
+    .feedback-unattempted {
+      background-color: #f8d7da;
+      border-left: 5px solid var(--danger);
+      color: #721c24;
+    }
+
+    .model-answer {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #c3e6cb;
+      border-radius: 4px;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .score-summary {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: none;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    @media print {
+      .action-bar, .save-status { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>OCR Sport & Physical Activity (Level 3)</h1>
+  <h2>Unit 3 - LO4 Practice Assessment</h2>
+
+  <!-- Student Details Header -->
+  <div class="header-box">
+    <div class="student-info">
+      <div class="form-group">
+        <label for="studentName">Candidate Name:</label>
+        <input type="text" id="studentName" placeholder="Enter Full Name">
+      </div>
+      <div class="form-group">
+        <label for="centreNo">Centre Number:</label>
+        <input type="text" id="centreNo" placeholder="e.g. 12345">
+      </div>
+      <div class="form-group">
+        <label for="candNo">Candidate Number:</label>
+        <input type="text" id="candNo" placeholder="e.g. 0001">
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="btn-success" onclick="markTest()">Mark My Test</button>
+      <button class="btn-primary" onclick="downloadJSON()">Save Progress (JSON)</button>
+      <button class="btn-warning" onclick="loadJSON()">Upload Saved File</button>
+      <button class="btn-primary" onclick="downloadGoogleDoc()">Download for Google Docs</button>
+      <button class="btn-danger" onclick="resetTest()">Reset Form</button>
+    </div>
+    <div class="save-status" id="saveStatus">Auto-save active. Your progress is saved locally.</div>
+  </div>
+
+  <div id="scoreSummary" class="score-summary"></div>
+
+  <!-- TEST QUESTIONS CONTAINER -->
+  <form id="quizForm">
+
+    <!-- Q1(a) -->
+    <div class="question-card" id="q_1a">
+      <div class="question-title">
+        1(a) Identify four disadvantages of hosting a major sporting event.
+        <span class="marks-badge">[4 Marks]</span>
+      </div>
+      <input type="text" name="q1a_1" placeholder="Disadvantage 1">
+      <input type="text" name="q1a_2" placeholder="Disadvantage 2">
+      <input type="text" name="q1a_3" placeholder="Disadvantage 3">
+      <input type="text" name="q1a_4" placeholder="Disadvantage 4">
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q1(b) -->
+    <div class="question-card" id="q_1b">
+      <div class="question-title">
+        1(b) Describe three benefits an individual may gain by volunteering in sports development.
+        <span class="marks-badge">[3 Marks]</span>
+      </div>
+      <input type="text" name="q1b_1" placeholder="Benefit 1">
+      <input type="text" name="q1b_2" placeholder="Benefit 2">
+      <input type="text" name="q1b_3" placeholder="Benefit 3">
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q1(c) -->
+    <div class="question-card" id="q_1c">
+      <div class="question-title">
+        1(c) Explain how sports development events and initiatives can benefit a sport.
+        <span class="marks-badge">[4 Marks]</span>
+      </div>
+      <textarea name="q1c" rows="4" placeholder="Explain your answers here..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q1(d) -->
+    <div class="question-card" id="q_1d">
+      <div class="question-title">
+        1(d) True or False: The overall accountability for sports development sits with UK Sport.
+        <span class="marks-badge">[1 Mark]</span>
+      </div>
+      <label><input type="radio" name="q1d" value="True"> True</label><br>
+      <label><input type="radio" name="q1d" value="False"> False</label>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q1(e) -->
+    <div class="question-card" id="q_1e">
+      <div class="question-title">
+        1(e) Explain why it might be important to use several different methods to promote sports development initiatives and events.
+        <span class="marks-badge">[3 Marks]</span>
+      </div>
+      <textarea name="q1e" rows="4" placeholder="Type your explanation here..."></textarea>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q2(a) -->
+    <div class="question-card" id="q_2a">
+      <div class="question-title">
+        2(a) For each example, classify whether it is an Initiative or an Event:
+        <span class="marks-badge">[4 Marks]</span>
+      </div>
+      <table>
+        <tr><th>Example</th><th>Initiative</th><th>Event</th></tr>
+        <tr>
+          <td>This Girl Can</td>
+          <td><input type="radio" name="q2a_1" value="Initiative"></td>
+          <td><input type="radio" name="q2a_1" value="Event"></td>
+        </tr>
+        <tr>
+          <td>Chance to Shine</td>
+          <td><input type="radio" name="q2a_2" value="Initiative"></td>
+          <td><input type="radio" name="q2a_2" value="Event"></td>
+        </tr>
+        <tr>
+          <td>High Five Netball Taster Session</td>
+          <td><input type="radio" name="q2a_3" value="Initiative"></td>
+          <td><input type="radio" name="q2a_3" value="Event"></td>
+        </tr>
+        <tr>
+          <td>Swim 21</td>
+          <td><input type="radio" name="q2a_4" value="Initiative"></td>
+          <td><input type="radio" name="q2a_4" value="Event"></td>
+        </tr>
+      </table>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q3(a) -->
+    <div class="question-card" id="q_3a">
+      <div class="question-title">
+        3(a) The Six Nations rugby championship is an international sporting event.
+        <span class="marks-badge">[1 Mark]</span>
+      </div>
+      <label><input type="radio" name="q3a" value="True"> True</label><br>
+      <label><input type="radio" name="q3a" value="False"> False</label>
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q3(c) -->
+    <div class="question-card" id="q_3c">
+      <div class="question-title">
+        3(c) A television advertising campaign is one way to promote sports development. Describe three other ways a sports development initiative can be promoted.
+        <span class="marks-badge">[3 Marks]</span>
+      </div>
+      <input type="text" name="q3c_1" placeholder="Method 1">
+      <input type="text" name="q3c_2" placeholder="Method 2">
+      <input type="text" name="q3c_3" placeholder="Method 3">
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q4(d) -->
+    <div class="question-card" id="q_4d">
+      <div class="question-title">
+        4(d) Name two national initiatives aimed at delivering sports development.
+        <span class="marks-badge">[2 Marks]</span>
+      </div>
+      <input type="text" name="q4d_1" placeholder="Initiative 1">
+      <input type="text" name="q4d_2" placeholder="Initiative 2">
+      <div class="feedback-box"></div>
+    </div>
+
+    <!-- Q7(b) -->
+    <div class="question-card" id="q_7b">
+      <div class="question-title">
+        7(b) Identify two types of cost that need to be considered when putting on a sports development event or initiative.
+        <span class="marks-badge">[2 Marks]</span>
+      </div>
+      <input type="text" name="q7b_1" placeholder="Cost Type 1">
+      <input type="text" name="q7b_2" placeholder="Cost Type 2">
+      <div class="feedback-box"></div>
+    </div>
+
+  </form>
+</div>
+
+<!-- Hidden File Input for uploading saved progress -->
+<input type="file" id="fileInput" style="display:none;" onchange="handleFileSelect(event)">
+
+<script>
+  // Save State automatically as candidate types
+  const STORAGE_KEY = 'ocr_pe_u3_lo4_data';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadSavedState();
+    document.getElementById('quizForm').addEventListener('input', autoSave);
+    document.querySelectorAll('.header-box input').forEach(input => {
+      input.addEventListener('input', autoSave);
+    });
+  });
+
+  function autoSave() {
+    const data = getFormData();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    const now = new Date().toLocaleTimeString();
+    document.getElementById('saveStatus').innerText = `Auto-saved at ${now}`;
+  }
+
+  function getFormData() {
+    const form = document.getElementById('quizForm');
+    const formData = new FormData(form);
+    const obj = {
+      studentName: document.getElementById('studentName').value,
+      centreNo: document.getElementById('centreNo').value,
+      candNo: document.getElementById('candNo').value,
+      answers: {}
+    };
+
+    for (let [key, val] of formData.entries()) {
+      obj.answers[key] = val;
+    }
+    return obj;
+  }
+
+  function loadSavedState() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+    const data = JSON.parse(saved);
+
+    if (data.studentName) document.getElementById('studentName').value = data.studentName;
+    if (data.centreNo) document.getElementById('centreNo').value = data.centreNo;
+    if (data.candNo) document.getElementById('candNo').value = data.candNo;
+
+    if (data.answers) {
+      for (let [key, val] of Object.entries(data.answers)) {
+        const field = document.querySelector(`[name="${key}"]`);
+        if (field) {
+          if (field.type === 'radio') {
+            const rad = document.querySelector(`[name="${key}"][value="${val}"]`);
+            if (rad) rad.checked = true;
+          } else {
+            field.value = val;
+          }
+        }
+      }
+    }
+  }
+
+  // --- FUZZY MATCHING / SPELLING TOLERANCE ---
+  function levenshteinDistance(a, b) {
+    if (a.length === 0) return b.length;
+    if (b.length === 0) return a.length;
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+    for (let i = 1; i <= b.length; i++) {
+      for (let j = 1; j <= a.length; j++) {
+        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          );
+        }
+      }
+    }
+    return matrix[b.length][a.length];
+  }
+
+  function matchesKeywords(userText, keyTerms) {
+    if (!userText || userText.trim().length === 0) return false;
+    const cleanUser = userText.toLowerCase().trim();
+    const words = cleanUser.split(/\s+/);
+
+    return keyTerms.some(term => {
+      const cleanTerm = term.toLowerCase();
+      // Direct substring match
+      if (cleanUser.includes(cleanTerm)) return true;
+
+      // Check fuzzy match on word level
+      return words.some(w => {
+        if (Math.abs(w.length - cleanTerm.length) > 3) return false;
+        const dist = levenshteinDistance(w, cleanTerm);
+        return dist <= (cleanTerm.length > 5 ? 2 : 1);
+      });
+    });
+  }
+
+  // --- ANSWER SCHEMES AND GRADING DEFINITIONS ---
+  const MARK_SCHEMES = {
+    q_1a: {
+      title: "1(a) Disadvantages of hosting major event",
+      maxMarks: 4,
+      type: "list",
+      inputs: ["q1a_1", "q1a_2", "q1a_3", "q1a_4"],
+      criteria: [
+        ["cost", "expense", "expensive", "money"],
+        ["house prices", "housing cost", "property price"],
+        ["tax", "taxes", "increased tax"],
+        ["move house", "relocation", "displaced", "demolish houses"],
+        ["elitist", "elite"],
+        ["restricted benefits", "host city only", "london only", "unequal benefit"],
+        ["scandal", "drugs", "doping", "corruption"],
+        ["wasted facilities", "white elephant", "unused venues", "empty stadium"],
+        ["terrorism", "terrorist", "security threat"],
+        ["poor reputation", "bad image", "embarrassment"],
+        ["environment", "environmental impact", "pollution", "congestion", "traffic"],
+        ["crime", "hooliganism", "anti-social", "antisocial"]
+      ],
+      officialModel: "Acceptable points: High costs; Increased house prices; Higher taxes; People forced to move home; Elitist nature; Benefits restricted to host city; Potential for scandal/doping; Wasted facilities ('white elephants'); Risk of terrorism; Environmental impact/traffic congestion; Anti-social behavior/crime."
+    },
+    q_1b: {
+      title: "1(b) Benefits of volunteering",
+      maxMarks: 3,
+      type: "list",
+      inputs: ["q1b_1", "q1b_2", "q1b_3"],
+      criteria: [
+        ["confidence", "self-esteem", "self esteem", "mental health", "wellbeing"],
+        ["meet people", "socialise", "friends", "networking"],
+        ["watch events", "spectate", "see matches"],
+        ["pride", "achievement", "sense of pride", "satisfaction"],
+        ["skills", "training", "learn new", "qualifications", "experience"],
+        ["opportunities", "new experience", "career prospects"]
+      ],
+      officialModel: "Acceptable points: Improves confidence/self-esteem/mental well-being; Meet new people/socialize; Ability to watch major sporting events; Sense of pride/achievement; Gain training/learn new skills; Gives new experiences and career opportunities."
+    },
+    q_1c: {
+      title: "1(c) Benefits of sports development to a sport",
+      maxMarks: 4,
+      type: "text",
+      inputs: ["q1c"],
+      criteria: [
+        ["profile", "reputation", "awareness", "popularity"],
+        ["sponsorship", "sponsors", "commercial interest"],
+        ["participation", "participate", "more players", "numbers"],
+        ["talent pool", "find talent", "grassroots"],
+        ["success", "win medals", "championships"],
+        ["funding", "money", "investment"],
+        ["audience", "spectators", "viewership"]
+      ],
+      officialModel: "Acceptable points: Raises the profile/reputation of the sport; Attracts new sponsorship opportunities; Increases participation numbers; Generates a larger talent pool; Makes the sport more successful (more medals/titles); Increases funding and media coverage/audience."
+    },
+    q_1d: {
+      title: "1(d) Accountability of sports development",
+      maxMarks: 1,
+      type: "radio",
+      inputs: ["q1d"],
+      correctVal: "False",
+      officialModel: "Correct Answer: False (Overall accountability sits with DCMS / Sport England / NGBs depending on region, not UK Sport alone)."
+    },
+    q_1e: {
+      title: "1(e) Why use several methods of promotion",
+      maxMarks: 3,
+      type: "text",
+      inputs: ["q1e"],
+      criteria: [
+        ["wide range", "widest variety", "reach more people", "widespread"],
+        ["target audience", "different audiences", "young people", "older people"],
+        ["social media", "share", "forward", "viral"],
+        ["cost", "cheap", "expensive", "budget"],
+        ["scale", "scale of event", "local vs national"]
+      ],
+      officialModel: "Acceptable points: Reaches the widest variety/range of people; Different methods reach target audiences (e.g., social media for youth, local newspapers for older age groups); Social media allows sharing; Promotional costs vary; Choice depends on scale of event."
+    },
+    q_2a: {
+      title: "2(a) Initiative vs Event classification",
+      maxMarks: 4,
+      type: "multi-radio",
+      answers: {
+        "q2a_1": "Initiative",
+        "q2a_2": "Initiative",
+        "q2a_3": "Event",
+        "q2a_4": "Initiative"
+      },
+      officialModel: "Correct Answers: This Girl Can = Initiative; Chance to Shine = Initiative; High Five Netball Taster Session = Event; Swim 21 = Initiative."
+    },
+    q_3a: {
+      title: "3(a) Six Nations Rugby Event Classification",
+      maxMarks: 1,
+      type: "radio",
+      inputs: ["q3a"],
+      correctVal: "True",
+      officialModel: "Correct Answer: True (Six Nations is an international event)."
+    },
+    q_3c: {
+      title: "3(c) Ways to promote sports development initiative",
+      maxMarks: 3,
+      type: "list",
+      inputs: ["q3c_1", "q3c_2", "q3c_3"],
+      criteria: [
+        ["social media", "facebook", "twitter", "instagram", "tiktok"],
+        ["newspaper", "local paper", "press release"],
+        ["radio", "broadcast"],
+        ["leaflet", "flyer", "brochure"],
+        ["poster", "billboard"],
+        ["word of mouth", "taster session", "school visit"],
+        ["guest speaker", "role model", "ambassador"]
+      ],
+      officialModel: "Acceptable methods (excl TV): Social media; Local newspapers; Radio; Leaflets/flyer drops; Posters; Word of mouth / taster sessions; Guest speakers / sporting role models."
+    },
+    q_4d: {
+      title: "4(d) Two national initiatives",
+      maxMarks: 2,
+      type: "list",
+      inputs: ["q4d_1", "q4d_2"],
+      criteria: [
+        ["this girl can"],
+        ["great british tennis weekend", "gb tennis"],
+        ["chance to shine"],
+        ["1 million kids", "one million kids"],
+        ["kickz", "kickz programme"],
+        ["swim 21", "swim21"]
+      ],
+      officialModel: "Acceptable answers include: This Girl Can, Great British Tennis Weekend, Chance to Shine, 1 Million Kids, Kickz Programme, Swim 21."
+    },
+    q_7b: {
+      title: "7(b) Types of cost for sports event/initiative",
+      maxMarks: 2,
+      type: "list",
+      inputs: ["q7b_1", "q7b_2"],
+      criteria: [
+        ["upfront", "upfront cost", "start cost", "initial cost", "facilities", "equipment", "insurance"],
+        ["ongoing", "on-going", "maintenance", "staffing", "coaching", "transport"],
+        ["financial gain", "profit", "revenue"]
+      ],
+      officialModel: "Acceptable types of cost: Upfront costs (equipment, venue hire, promotion, insurance); Ongoing costs (staffing, transport, facility maintenance)."
+    }
+  };
+
+  // --- MARKING ENGINE ---
+  function markTest() {
+    let totalAwarded = 0;
+    let totalPossible = 0;
+
+    for (let [qId, scheme] of Object.entries(MARK_SCHEMES)) {
+      const card = document.getElementById(qId);
+      const feedbackBox = card.querySelector('.feedback-box');
+      totalPossible += scheme.maxMarks;
+
+      let attempted = checkAttempted(scheme);
+
+      if (!attempted) {
+        // HIDE MODEL ANSWER IF NOT ATTEMPTED
+        feedbackBox.style.display = 'block';
+        feedbackBox.className = 'feedback-box feedback-unattempted';
+        feedbackBox.innerHTML = `<strong>Status: Not Attempted</strong><br>
+          <em>Model answers and mark scheme feedback are hidden because this question was not answered. Please complete the question to view feedback.</em>`;
+      } else {
+        // GRADE ATTEMPTED QUESTION
+        let marksGained = gradeQuestion(scheme);
+        totalAwarded += marksGained;
+
+        feedbackBox.style.display = 'block';
+        feedbackBox.className = 'feedback-box feedback-attempted';
+        feedbackBox.innerHTML = `
+          <strong>Score: ${marksGained} / ${scheme.maxMarks}</strong>
+          <div class="model-answer">
+            <strong>Mark Scheme & Model Guidance:</strong><br>
+            ${scheme.officialModel}
+          </div>
+        `;
+      }
+    }
+
+    const summary = document.getElementById('scoreSummary');
+    summary.style.display = 'block';
+    summary.innerHTML = `Assessment Result: You scored ${totalAwarded} out of ${totalPossible} marks across attempted questions.`;
+    window.scrollTo({ top: summary.offsetTop - 20, behavior: 'smooth' });
+  }
+
+  function checkAttempted(scheme) {
+    if (scheme.type === 'list' || scheme.type === 'text') {
+      return scheme.inputs.some(id => {
+        const input = document.querySelector(`[name="${id}"]`);
+        return input && input.value.trim().length > 1;
+      });
+    } else if (scheme.type === 'radio') {
+      const checked = document.querySelector(`[name="${scheme.inputs[0]}"]:checked`);
+      return checked !== null;
+    } else if (scheme.type === 'multi-radio') {
+      return Object.keys(scheme.answers).some(name => {
+        return document.querySelector(`[name="${name}"]:checked`) !== null;
+      });
+    }
+    return false;
+  }
+
+  function gradeQuestion(scheme) {
+    let score = 0;
+
+    if (scheme.type === 'radio') {
+      const selected = document.querySelector(`[name="${scheme.inputs[0]}"]:checked`);
+      if (selected && selected.value === scheme.correctVal) score = 1;
+    } 
+    else if (scheme.type === 'multi-radio') {
+      for (let [name, correct] of Object.entries(scheme.answers)) {
+        const selected = document.querySelector(`[name="${name}"]:checked`);
+        if (selected && selected.value === correct) score++;
+      }
+    } 
+    else if (scheme.type === 'list') {
+      let matchedCriteriaIndexes = new Set();
+      scheme.inputs.forEach(inputId => {
+        const val = document.querySelector(`[name="${inputId}"]`).value;
+        if (val.trim().length > 1) {
+          scheme.criteria.forEach((critGroup, idx) => {
+            if (!matchedCriteriaIndexes.has(idx) && matchesKeywords(val, critGroup)) {
+              matchedCriteriaIndexes.add(idx);
+              score++;
+            }
+          });
+        }
+      });
+      score = Math.min(score, scheme.maxMarks);
+    } 
+    else if (scheme.type === 'text') {
+      const val = document.querySelector(`[name="${scheme.inputs[0]}"]`).value;
+      let matches = 0;
+      scheme.criteria.forEach(critGroup => {
+        if (matchesKeywords(val, critGroup)) {
+          matches++;
+        }
+      });
+      score = Math.min(matches, scheme.maxMarks);
+    }
+
+    return score;
+  }
+
+  // --- SAVE / RESTORE / EXPORT FUNCTIONS ---
+  function downloadJSON() {
+    const data = getFormData();
+    const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute("href", str);
+    dlAnchor.setAttribute("download", `OCR_LO4_Test_${data.studentName || 'Student'}.json`);
+    document.body.appendChild(dlAnchor);
+    dlAnchor.click();
+    dlAnchor.remove();
+  }
+
+  function loadJSON() {
+    document.getElementById('fileInput').click();
+  }
+
+  function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        loadSavedState();
+        alert('Saved test progress successfully loaded!');
+      } catch (err) {
+        alert('Invalid JSON file format.');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function resetTest() {
+    if (confirm("Are you sure you want to reset all answers?")) {
+      localStorage.removeItem(STORAGE_KEY);
+      document.getElementById('quizForm').reset();
+      document.getElementById('studentName').value = '';
+      document.getElementById('centreNo').value = '';
+      document.getElementById('candNo').value = '';
+      document.querySelectorAll('.feedback-box').forEach(el => el.style.display = 'none');
+      document.getElementById('scoreSummary').style.display = 'none';
+      document.getElementById('saveStatus').innerText = 'Cleared state.';
+    }
+  }
+
+  // Download directly compatible format for Google Docs / Word
+  function downloadGoogleDoc() {
+    const data = getFormData();
+    let docHTML = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+      <head><meta charset='utf-8'><title>OCR PE Test Submission</title>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.5; }
+        h1 { color: #0056b3; }
+        .box { border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; }
+        .model { background: #e8f4ea; padding: 8px; border-left: 4px solid #28a745; margin-top: 5px; }
+        .unattempted { background: #f8d7da; padding: 8px; border-left: 4px solid #dc3545; }
+      </style>
+      </head>
+      <body>
+        <h1>OCR Level 3 Sport & Physical Activity - LO4 Assessment</h1>
+        <p><strong>Candidate Name:</strong> ${data.studentName || 'N/A'}</p>
+        <p><strong>Centre Number:</strong> ${data.centreNo || 'N/A'}</p>
+        <p><strong>Candidate Number:</strong> ${data.candNo || 'N/A'}</p>
+        <hr/>
+    `;
+
+    for (let [qId, scheme] of Object.entries(MARK_SCHEMES)) {
+      const card = document.getElementById(qId);
+      const title = card.querySelector('.question-title').innerText;
+      let attempted = checkAttempted(scheme);
+
+      docHTML += `<div class="box"><h3>${title}</h3>`;
+
+      if (scheme.type === 'list') {
+        scheme.inputs.forEach((id, i) => {
+          const val = data.answers[id] || '<em>No answer provided</em>';
+          docHTML += `<p><strong>Answer ${i+1}:</strong> ${val}</p>`;
+        });
+      } else if (scheme.type === 'text') {
+        const val = data.answers[scheme.inputs[0]] || '<em>No answer provided</em>';
+        docHTML += `<p><strong>Response:</strong> ${val}</p>`;
+      } else if (scheme.type === 'radio') {
+        const val = data.answers[scheme.inputs[0]] || '<em>No answer provided</em>';
+        docHTML += `<p><strong>Selected Option:</strong> ${val}</p>`;
+      } else if (scheme.type === 'multi-radio') {
+        for (let name of Object.keys(scheme.answers)) {
+          docHTML += `<p><strong>Option (${name}):</strong> ${data.answers[name] || 'None'}</p>`;
+        }
+      }
+
+      if (attempted) {
+        let mark = gradeQuestion(scheme);
+        docHTML += `
+          <div class="model">
+            <strong>Mark Awarded:</strong> ${mark} / ${scheme.maxMarks}<br/>
+            <strong>Official Model Answer / Mark Scheme:</strong> ${scheme.officialModel}
+          </div>`;
+      } else {
+        docHTML += `
+          <div class="unattempted">
+            <strong>Status: Unattempted</strong><br/>
+            <em>Model answers hidden because the candidate did not attempt this question.</em>
+          </div>`;
+      }
+
+      docHTML += `</div>`;
+    }
+
+    docHTML += `</body></html>`;
+
+    const blob = new Blob(['\ufeff' + docHTML], {
+      type: 'application/msword'
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `OCR_PE_LO4_Test_${data.studentName || 'Candidate'}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+</script>
+</body>
+</html>
